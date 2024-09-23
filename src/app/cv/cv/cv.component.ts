@@ -7,8 +7,35 @@ import { Cv } from '../model/cv';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+  /**
+   * Le cv sélectionné par click sur l'item
+   */
+  selectedCv: Cv | null = null;
+  /**
+   * La liste des cvs à afficher
+   */
   cvs: Cv[] = [
-    new Cv(1, 'sellaouti', 'aymen', 'teacher', 'rotating_card_profile3.png', '1234', 42),
-    new Cv(2, 'morlet', 'jean', 'Dev Sénior', 'rotating_card_profile2.png', '2234', 25),
+    new Cv(
+      1,
+      'sellaouti',
+      'aymen',
+      'teacher',
+      'rotating_card_profile3.png',
+      '1234',
+      42
+    ),
+    new Cv(
+      2,
+      'morlet',
+      'jean',
+      'Dev Sénior',
+      'rotating_card_profile2.png',
+      '2234',
+      25
+    ),
   ];
+
+  onSelectCv(cv: Cv) {
+    this.selectedCv = cv;
+  }
 }
