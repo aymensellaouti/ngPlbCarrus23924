@@ -1,0 +1,12 @@
+<div [hidden]="isHidden" class="alert alert-success">
+  <h2>{{ name }} works!</h2>
+  <app-second/>
+</div>
+<p>le contenu de l'input: {{inputMessage}} </p>
+<input #monInput (change)="changeMessage(monInput.value)" type="text">
+<button (click)="showHide()" class="btn btn-primary">show hide</button>
+<!-- Qu'est ce qu'on peut avoir ici ? -->
+
+<!-- Balises => attributs : état (state) -->
+
+<!-- events => comportement(behaviour) -->
