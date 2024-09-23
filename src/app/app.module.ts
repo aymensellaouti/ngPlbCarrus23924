@@ -9,6 +9,8 @@ import { ColorComponent } from './components/color/color.component';
 import { TwoWayComponent } from './components/two-way/two-way.component';
 import { FormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
+import { PereComponent } from './communication/pere/pere.component';
+import { FilsComponent } from './communication/fils/fils.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RotatingCardComponent } from './components/rotating-card/rotating-card.
     SecondComponent,
     ColorComponent,
     TwoWayComponent,
-    RotatingCardComponent
+    RotatingCardComponent,
+    PereComponent,
+    FilsComponent
   ],
   imports: [
     // les modules dont on a besoin pour faire le job
