@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
+    // Les composants pipes et directives de ce module
     AppComponent
   ],
   imports: [
+    // les modules dont on a besoin pour faire le job
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    // les dépendances
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
