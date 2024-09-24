@@ -7,6 +7,7 @@ import { Cv } from '../model/cv';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+  today = new Date();
   /**
    * Le cv sélectionné par click sur l'item
    */
@@ -20,7 +21,7 @@ export class CvComponent {
       'sellaouti',
       'aymen',
       'teacher',
-      'rotating_card_profile3.png',
+      '      ',
       '1234',
       42
     ),
