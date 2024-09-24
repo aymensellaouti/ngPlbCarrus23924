@@ -21,6 +21,7 @@ import { NgClassComponent } from './directives/ng-class/ng-class.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { LoggerService } from './services/logger.service';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
   ],
   providers: [
     // les dépendances
+    LoggerService
   ],
   bootstrap: [AppComponent]
 })
