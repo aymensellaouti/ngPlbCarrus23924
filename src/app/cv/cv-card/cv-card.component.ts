@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { Cv } from '../model/cv';
 import { EmbaucheService } from '../services/embauche.service';
 import { ToastrService } from 'ngx-toastr';
+import { APP_ROUTES } from 'src/app/config/app-routes.config';
 
 @Component({
   selector: 'app-cv-card',
@@ -12,6 +13,9 @@ export class CvCardComponent {
   @Input() cv: Cv | null = null;
   embaucheService = inject(EmbaucheService);
   toast = inject(ToastrService);
+  get cvRoute() {
+    return `/${APP_ROUTES.cv}`;
+  }
   embaucher() {
     if (this.cv) {
       if (this.embaucheService.embaucher(this.cv)) {

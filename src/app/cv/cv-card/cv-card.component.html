@@ -52,7 +52,11 @@
           </div>
           <div class="footer">
             <div class="social-links text-center">
-              <button class="btn btn-primary" (click)="embaucher()">embaucher</button>
+              <button
+              class="btn btn-primary" (click)="embaucher()">embaucher</button>
+              <button
+              [routerLink]="[cvRoute, cv.id]"
+              class="btn btn-dark">détails</button>
             </div>
           </div>
         </div>
