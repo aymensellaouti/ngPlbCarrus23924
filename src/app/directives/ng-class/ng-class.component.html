@@ -1,4 +1,4 @@
-<div (click)="interrupteur()" class="lampe" [ngClass]="{
+<div appRainbow (click)="interrupteur()" class="lampe" [ngClass]="{
   eteinte: isEteinte,
   allume: !isEteinte
 }">Lampe</div>
@@ -6,3 +6,6 @@
 <div appHighlight>directive</div>
 <div appHighlight [in]="'lightblue'" [out]="'white'">directive</div>
 <div appHighlight [in]="'blue'" [out]="'red'">directive</div>
+
+
+<input type="text" appRainbow>
