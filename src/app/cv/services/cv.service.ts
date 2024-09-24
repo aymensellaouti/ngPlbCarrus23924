@@ -26,7 +26,7 @@ export class CvService {
    * @returns Cv[]
    */
   getCvs(): Cv[] {
-    return [];
+    return this.#cvs;
   }
 
   /**

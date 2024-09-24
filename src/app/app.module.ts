@@ -29,6 +29,7 @@ import { LoggerService } from './services/logger.service';
 import { TodoComponent } from './cv/todo/todo/todo.component';
 import { WeekTodoComponent } from './cv/todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     DefaultImagePipe,
     TodoComponent,
     WeekTodoComponent,
-    EmbaucheComponent
+    EmbaucheComponent,
+    NavbarComponent
   ],
   imports: [
     // les modules dont on a besoin pour faire le job
@@ -65,7 +67,7 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
   ],
   providers: [
     // les dépendances
-    // LoggerService
+    LoggerService
   ],
   bootstrap: [AppComponent],
 })
