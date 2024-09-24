@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Cv } from '../model/cv.model';
+import { Cv } from '../model/cv';
+
 
 @Injectable({
   providedIn: 'root',
