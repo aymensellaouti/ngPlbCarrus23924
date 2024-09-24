@@ -18,24 +18,7 @@ export class CvComponent {
    * La liste des cvs à afficher
    */
   cvs: Cv[] = [
-    new Cv(
-      1,
-      'sellaouti',
-      'aymen',
-      'teacher',
-      '      ',
-      '1234',
-      42
-    ),
-    new Cv(
-      2,
-      'morlet',
-      'jean',
-      'Dev Sénior',
-      'rotating_card_profile2.png',
-      '2234',
-      25
-    ),
+
   ];
   // sayHello = new SayHelloService();
   constructor(

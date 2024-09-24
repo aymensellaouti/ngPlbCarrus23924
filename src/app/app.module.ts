@@ -28,6 +28,7 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { LoggerService } from './services/logger.service';
 import { TodoComponent } from './cv/todo/todo/todo.component';
 import { WeekTodoComponent } from './cv/todo/week-todo/week-todo.component';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { WeekTodoComponent } from './cv/todo/week-todo/week-todo.component';
     DefaultImagePipe,
     TodoComponent,
     WeekTodoComponent,
+    EmbaucheComponent
   ],
   imports: [
     // les modules dont on a besoin pour faire le job
