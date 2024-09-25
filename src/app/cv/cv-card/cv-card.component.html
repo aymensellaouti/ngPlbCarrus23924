@@ -1,4 +1,4 @@
-    <div class="card-container" *ngIf="cv">
+    <div class="card-container" *ngIf="cv" data-cy="cvCard">
       <div class="card">
         <div class="front">
           <div class="cover">
@@ -55,6 +55,7 @@
               <button
               class="btn btn-primary" (click)="embaucher()">embaucher</button>
               <button
+              data-cy="detailsBtn"
               [routerLink]="[cvRoute, cv.id]"
               class="btn btn-dark">détails</button>
             </div>
