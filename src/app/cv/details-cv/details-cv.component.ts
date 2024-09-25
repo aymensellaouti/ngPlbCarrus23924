@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app-routes.config";
 import { catchError, EMPTY, Observable } from "rxjs";
+import { ToastrService } from "ngx-toastr";
 
 
 @Component({
@@ -15,6 +16,7 @@ export class DetailsCvComponent {
   acr = inject(ActivatedRoute);
   cvService = inject(CvService);
   router = inject(Router);
+  toastr = inject(ToastrService);
   cv$: Observable<Cv | null> = this.cvService.findCvById(
     this.acr.snapshot.params['id']
   ).pipe(
@@ -36,8 +38,14 @@ export class DetailsCvComponent {
 
   delete(cv: Cv) {
 
-      this.cvService.deleteCv(cv);
-      this.router.navigate([APP_ROUTES.cv]);
+    this.cvService.deleteCvById(cv.id).subscribe({
+      next: () => {
+        this.router.navigate([APP_ROUTES.cv]);
+      },
+      error: (e) => {
+        this.toastr.error(e.message);
+      }
+    })
   }
 }
 /**

@@ -54,6 +54,17 @@ export class CvService {
   }
 
   /**
+   *
+   * Cherche un cv avec son id dans lai liste fictive de cvs
+   *
+   * @param id
+   * @returns Observable<{count: number}>
+   */
+  deleteCvById(id: number): Observable<{ count: number }> {
+    return this.http.delete<{ count: number }>(APP_API.cv + id);
+  }
+
+  /**
    * Retourne la liste des cvs
    * @returns Cv[]
    */
