@@ -34,6 +34,7 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './forms/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
+import { TestObservableComponent } from './observables/test-observable/test-observable.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { LoginComponent } from './auth/login/login.component';
     DetailsCvComponent,
     NF404Component,
     TestFormComponent,
-    LoginComponent
+    LoginComponent,
+    TestObservableComponent
   ],
   imports: [
     // les modules dont on a besoin pour faire le job

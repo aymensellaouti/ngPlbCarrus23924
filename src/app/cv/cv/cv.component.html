@@ -3,10 +3,10 @@
     <div class="alert alert-warning">
       {{ today | date: 'long' | uppercase}}
     </div>
-    <app-list (forwardSelectedCv)="onSelectCv($event)" [cvs]="cvs" />
+    <app-list [cvs]="cvs" />
   </div>
   <div class="col-12 col-md-6">
-    <app-cv-card [cv]="selectedCv" />
+    <app-cv-card [cv]="selectedCv$ | async" />
   </div>
 </div>
 <app-embauche/>

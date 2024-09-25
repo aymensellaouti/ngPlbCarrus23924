@@ -9,6 +9,6 @@ import { Cv } from '../model/cv';
 export class ListComponent {
   @Input()
   cvs: Cv[] = [];
-  @Output()
-  forwardSelectedCv = new EventEmitter<Cv>();
+  // @Output()
+  // forwardSelectedCv = new EventEmitter<Cv>();
 }

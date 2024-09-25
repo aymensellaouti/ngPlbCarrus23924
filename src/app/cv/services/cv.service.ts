@@ -1,5 +1,6 @@
 import {  inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv';
+import { Subject } from 'rxjs';
 
 
 
@@ -20,6 +21,15 @@ export class CvService {
       25
     ),
   ];
+
+  // On définit notre flux: Cv1, Cv3, Cv1, Cv2 .....
+  #selectCvSubject = new Subject<Cv>();
+
+  // On encapsule la partie observateur et on partage uniquement l'observable
+  /**
+   * Le flux des cvs sélectionnés
+   */
+  selectedCv$ = this.#selectCvSubject.asObservable();
 
   /**
    * Retourne la liste des cvs
@@ -54,5 +64,15 @@ export class CvService {
       return true;
     }
     return false;
+  }
+
+  /**
+   * Ajoute le cv dans le flux des cvs sélectionnes
+   *
+   * @param cv le cv sélectionné
+   */
+  selectCv(cv: Cv): void {
+    // On peut ajouter des tests ou de la logique
+    this.#selectCvSubject.next(cv);
   }
 }
