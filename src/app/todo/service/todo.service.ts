@@ -1,6 +1,15 @@
 import { inject, Injectable } from "@angular/core";
 import { Todo } from "../model/todo";
 import { LoggerService } from "src/app/services/logger.service";
+import { HttpClient } from "@angular/common/http";
+
+export interface TodoApi {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +17,7 @@ import { LoggerService } from "src/app/services/logger.service";
 export class TodoService {
   private todos: Todo[] = [];
   logger = inject(LoggerService);
+  http = inject(HttpClient);
   /**
    * elle retourne la liste des todos
    *
@@ -48,5 +58,11 @@ export class TodoService {
    */
   logTodos() {
     this.logger.loger(this.todos);
+  }
+
+  getTodosFromApi() {
+    return this.http.get<TodoApi[]>(
+      'https://jsonplaceholder.typicode.com/todos'
+    );
   }
 }

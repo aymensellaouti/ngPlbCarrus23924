@@ -24,3 +24,12 @@
     </button>
   </div>
 </div>
+
+
+<div class="alert alert-danger">
+  <div class="row">
+    <div class="col-4"
+      *ngFor="let todo of todos$ | async"
+    > {{todo.title}} </div>
+  </div>
+</div>

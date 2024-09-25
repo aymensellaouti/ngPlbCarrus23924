@@ -11,6 +11,7 @@ import { Todo } from "../model/todo";
 export class TodoComponent {
   // State de notre composant :
   todoService = inject(TodoService);
+  todos$ = this.todoService.getTodosFromApi()
   /**
    * La liste des todos que je vais afficher
    */
