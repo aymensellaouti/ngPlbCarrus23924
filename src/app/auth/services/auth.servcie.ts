@@ -14,4 +14,10 @@ export class AuthService {
         tap( response => localStorage.setItem(APP_CONSTANTES.token, response.id))
       )
     }
+    isAuthenticated(): boolean {
+      return !!localStorage.getItem(APP_CONSTANTES.token);
+    }
+    logout() {
+      localStorage.removeItem(APP_CONSTANTES.token);
+    }
 }

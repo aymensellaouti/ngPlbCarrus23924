@@ -5,6 +5,7 @@ import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app-routes.config";
 import { catchError, EMPTY, Observable } from "rxjs";
 import { ToastrService } from "ngx-toastr";
+import { AuthService } from "src/app/auth/services/auth.servcie";
 
 
 @Component({
@@ -17,18 +18,18 @@ export class DetailsCvComponent {
   cvService = inject(CvService);
   router = inject(Router);
   toastr = inject(ToastrService);
-  cv$: Observable<Cv | null> = this.cvService.findCvById(
-    this.acr.snapshot.params['id']
-  ).pipe(
-    catchError(() => {
-      this.router.navigate([APP_ROUTES.cv]);
-      return EMPTY;
-    })
-  );
+  authService = inject(AuthService);
+  cv$: Observable<Cv | null> = this.cvService
+    .findCvById(this.acr.snapshot.params['id'])
+    .pipe(
+      catchError(() => {
+        this.router.navigate([APP_ROUTES.cv]);
+        return EMPTY;
+      })
+    );
   constructor() {
     //const id = this.acr.snapshot.params['id'];
     // this.cv = this.cvService.findCvById(id);
-
     // V1
     // this.cvService.findCvById(id).subscribe({
     //   next: (cv) => this.cv = cv,
@@ -37,15 +38,14 @@ export class DetailsCvComponent {
   }
 
   delete(cv: Cv) {
-
     this.cvService.deleteCvById(cv.id).subscribe({
       next: () => {
         this.router.navigate([APP_ROUTES.cv]);
       },
       error: (e) => {
         this.toastr.error(e.message);
-      }
-    })
+      },
+    });
   }
 }
 /**

@@ -37,6 +37,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './observables/test-observable/test-observable.component';
 import { TodoComponent } from './todo/todo/todo.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { AuthInterceptorProvider } from './auth/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
     NF404Component,
     TestFormComponent,
     LoginComponent,
-    TestObservableComponent
+    TestObservableComponent,
+    AddCvComponent,
   ],
   imports: [
     // les modules dont on a besoin pour faire le job
@@ -76,11 +79,12 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     // les dépendances
-    LoggerService
+    LoggerService,
+    AuthInterceptorProvider,
   ],
   bootstrap: [AppComponent],
 })
