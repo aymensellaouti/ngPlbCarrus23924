@@ -1,6 +1,8 @@
 import {  inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { APP_API } from 'src/app/config/app-api.config';
 
 
 
@@ -31,11 +33,31 @@ export class CvService {
    */
   selectedCv$ = this.#selectCvSubject.asObservable();
 
+  http = inject(HttpClient);
+  /**
+   * Retourne la liste des cvs de notre API
+   * @returns Observable<Cv[]>
+   */
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cv);
+  }
+
+  /**
+   *
+   * Cherche un cv avec son id dans lai liste fictive de cvs
+   *
+   * @param id
+   * @returns Observable<Cv | null>
+   */
+  findCvById(id: number): Observable<Cv | null> {
+    return this.http.get<Cv | null>(APP_API.cv + id);
+  }
+
   /**
    * Retourne la liste des cvs
    * @returns Cv[]
    */
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.#cvs;
   }
 
@@ -46,8 +68,8 @@ export class CvService {
    * @param id
    * @returns Cv | null
    */
-  findCvById(id: number): Cv | null {
-    return this.#cvs.find(c => c.id ==id) ?? null;
+  findFakeCvById(id: number): Cv | null {
+    return this.#cvs.find((c) => c.id == id) ?? null;
   }
 
   /**

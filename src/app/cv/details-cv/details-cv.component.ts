@@ -3,6 +3,7 @@ import { Cv } from "../model/cv";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app-routes.config";
+import { catchError, EMPTY, Observable } from "rxjs";
 
 
 @Component({
@@ -11,21 +12,32 @@ import { APP_ROUTES } from "src/app/config/app-routes.config";
   styleUrls: ['./details-cv.component.css'],
 })
 export class DetailsCvComponent {
-  cv: Cv | null = null;
   acr = inject(ActivatedRoute);
   cvService = inject(CvService);
   router = inject(Router);
+  cv$: Observable<Cv | null> = this.cvService.findCvById(
+    this.acr.snapshot.params['id']
+  ).pipe(
+    catchError(() => {
+      this.router.navigate([APP_ROUTES.cv]);
+      return EMPTY;
+    })
+  );
   constructor() {
-    const id = this.acr.snapshot.params['id'];
-    this.cv = this.cvService.findCvById(id);
-    if (!this.cv) this.router.navigate([APP_ROUTES.cv]);
+    //const id = this.acr.snapshot.params['id'];
+    // this.cv = this.cvService.findCvById(id);
+
+    // V1
+    // this.cvService.findCvById(id).subscribe({
+    //   next: (cv) => this.cv = cv,
+    //   error: () => this.router.navigate([APP_ROUTES.cv])
+    // })
   }
 
-  delete() {
-    if(this.cv) {
-      this.cvService.deleteCv(this.cv);
+  delete(cv: Cv) {
+
+      this.cvService.deleteCv(cv);
       this.router.navigate([APP_ROUTES.cv]);
-    }
   }
 }
 /**

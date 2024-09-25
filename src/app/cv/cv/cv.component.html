@@ -3,7 +3,9 @@
     <div class="alert alert-warning">
       {{ today | date: 'long' | uppercase}}
     </div>
-    <app-list [cvs]="cvs" />
+    <ng-container *ngIf="cvs$ | async as cvs">
+      <app-list [cvs]="cvs" />
+    </ng-container>
   </div>
   <div class="col-12 col-md-6">
     <app-cv-card [cv]="selectedCv$ | async" />
