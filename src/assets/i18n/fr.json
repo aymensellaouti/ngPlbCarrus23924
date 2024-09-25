@@ -1,0 +1,10 @@
+{
+  "APP.TITLE": "Formation chez Carrus",
+  "HOME": {
+    "welcomeMessage": "Nous vous remercions pour votre présence, {{ firstName }}! C'est un plaisir de vous avoir avec nous!",
+    "login": {
+      "username": "Veuillez saisir votre nom d'utilisateur",
+      "password": "Votre mot de passe"
+    }
+  }
+}
